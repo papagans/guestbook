@@ -17,7 +17,6 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
@@ -26,9 +25,7 @@
         {% block menu %}{% endblock %}
     </ul>
     <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'book_search' %}">
-
-      <input class="form-control mr-sm-2" type="search"  name = "search" placeholder="Поиск по ватору">
-{#{% include 'partial/book_form.html' with button_text='Search' %}#}
+      <input class="form-control mr-sm-2" type="search"  name = "search" required placeholder="Поиск по ватору">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Найти</button>
     </form>
   </div>

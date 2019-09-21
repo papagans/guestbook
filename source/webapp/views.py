@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 from webapp.models import Book
 from webapp.forms import BookForm, SearchForm
-# from webapp.models import status_choices
 from django.shortcuts import render, get_object_or_404, redirect
 
 
@@ -56,33 +55,11 @@ def book_delete(request, pk):
 
 def book_search(request):
     form = SearchForm(data=request.GET)
-    search = request.GET.get('search')
-    books = Book.objects.filter(author__contains=search)
-    return render(request, 'search.html', context={
-        'form': form,
-        'books': books
-    })
-
-
-# def book_search(request):
-#     form = SearchForm(data=request.GET)
-#     if form.is_valid():
-#         search = form.cleaned_data
-#         books = Book.objects.filter(author__contains=search)
-#         return render(request, 'search.html', context={
-#             'form': form,
-#             'books': books
-#              })
-
-
-# def book_search(request):
-#     if request.method == 'GET':
-#         form = SearchForm()
-#         search = request.GET.get('search')
-#         books = Book.objects.filter(author__contains=search)
-#         if form.is_valid():
-#             return render(request, 'search.html', context={
-#                 'form': form,
-#                 'books': books
-#             })
-# # Create your views here.
+    if form.is_valid():
+        search = form.cleaned_data['search']
+        books = Book.objects.filter(author__contains=search)
+        return render(request, 'search.html', context={
+            'books': books
+             })
+    else:
+        return redirect('book_index')
