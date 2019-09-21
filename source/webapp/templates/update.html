@@ -7,6 +7,6 @@
     <h1>Update Todo</h1>
     <form method="POST" action="{% url "todo_update" todo.pk %}">
         {% csrf_token %}
-        {% include 'partial/todo_form.html' with button_text="Update" %}свсвс
+        {% include 'partial/todo_form.html' with button_text="Update" %}
     </form>
 {% endblock %}
