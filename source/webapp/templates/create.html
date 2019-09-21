@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Create Todo{% endblock %}
+{% block content %}
+   <h1>Create Todo</h1>
+   <form method="POST" action="{% url "create" %}">
+       {% csrf_token %}
+       {% include 'partial/book_form.html' with button_text='Create' %}
+   </form>
+{% endblock %}
