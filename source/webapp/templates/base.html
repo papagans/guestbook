@@ -24,10 +24,10 @@
       </li>
         {% block menu %}{% endblock %}
     </ul>
-    <form class="form-inline my-2 my-lg-0" method="post" action="/search/?pk={{ todo.pk }}">
-        {% csrf_token %}
-      <input class="form-control mr-sm-2" type="search"  name = "todo_id" placeholder="Doesn't work at moment">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'book_search' %}">
+            {% csrf_token %}
+      <input class="form-control mr-sm-2" type="search"  name = "search" placeholder="Поиск по ватору">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Найти</button>
     </form>
   </div>
 </nav>

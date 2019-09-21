@@ -7,7 +7,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 
 def book_index(request, *args, **kwargs):
-    books = Book.objects.all()
+    books = Book.objects.exclude(status='blocked').order_by('-created_at')
     return render(request, 'index.html', context={
         'books': books
     })
@@ -52,4 +52,12 @@ def book_delete(request, pk):
     elif request.method == 'POST':
         book.delete()
         return redirect('book_index')
+
+
+def book_search(request):
+    search = request.GET.get('search')
+    books = Book.objects.filter(author__contains=search)
+    return render(request, 'search.html', context={
+        'books': books
+    })
 # Create your views here.

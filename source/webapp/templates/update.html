@@ -4,7 +4,7 @@
 {#<li><a href="{% url 'todo_view' todo.pk %}">View</a></li>#}
 {% endblock %}
 {% block content %}
-    <h1>Редактировать</h1>
+    <h1>Редактировать запись</h1>
     <form method="POST" action="{% url "book_update" book.pk %}">
         {% csrf_token %}
         {% include 'partial/book_form.html' with button_text="Update" %}

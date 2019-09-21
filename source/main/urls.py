@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from webapp.views import book_index, book_create, book_update, book_delete
+from webapp.views import book_index, book_create, book_update, book_delete, book_search
 
 
 urlpatterns = [
@@ -24,4 +24,5 @@ urlpatterns = [
     path('create/', book_create, name='create'),
     path('update/<int:pk>/edit/', book_update, name='book_update'),
     path('delete/<int:pk>/delete/', book_delete, name='book_delete'),
+    path('search/', book_search, name='book_search'),
 ]
