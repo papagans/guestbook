@@ -57,7 +57,7 @@ def book_search(request):
     form = SearchForm(data=request.GET)
     if form.is_valid():
         search = form.cleaned_data['search']
-        books = Book.objects.filter(author__contains=search)
+        books = Book.objects.filter(author__contains=search).exclude(status='blocked').order_by('-created_at')
         return render(request, 'search.html', context={
             'books': books
              })
