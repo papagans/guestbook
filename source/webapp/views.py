@@ -45,11 +45,11 @@ def book_update(request, pk):
             return render(request, 'update.html', context={'form': form, 'book': book})
 
 
-def product_delete(request, pk):
-    product = get_object_or_404(Product, pk=pk)
+def book_delete(request, pk):
+    book = get_object_or_404(Book, pk=pk)
     if request.method == 'GET':
-        return render(request, 'delete.html', context={'product': product})
+        return render(request, 'delete.html', context={'book': book})
     elif request.method == 'POST':
-        product.delete()
-        return redirect('index')
+        book.delete()
+        return redirect('book_index')
 # Create your views here.
