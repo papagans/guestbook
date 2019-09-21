@@ -1,16 +1,17 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block menu %}
-   <li><a href="{% url 'article_add' %}">Add Article</a></li>
+    <li class="nav-item active">
+{#        <a class="nav-link" href="{% url 'todo_add' %}">Add toDo List <span class="sr-only">(current)</span></a>#}
+      </li>
 {% endblock %}
 {% block content %}
-   <h1>Articles:</h1>
-   <hr/>
-   {% for article in articles %}
-       <h2>{{ article.title }}</h2>
-       <div>{{ article.text }}</div>
-       <p><a href="{% url 'article_view' article.pk %}">More...</a></p>
-       <p><a href="{% url 'article_update' article.pk %}">Edit</a></p>
-       <p><a href="{% url 'article_delete' article.pk %}">Delete</a></p>
-       <hr/>
-   {% endfor %}
+{% for book in books %}
+    <div class="card border-primary mb-3" style="max-width: 18rem; text-align: center">
+  <div class="card-header"><h3>{{ book.author }} {{ book.email  }}</h3>
+    <h5 class="card-title">{{ book.text }}</h5>
+{#    <p class="card-title"><a href="{% url 'todo_view' todo.pk %}"> Details...</a></p>#}
+  </div>
+</div>
+
+{% endfor %}
 {% endblock %}
