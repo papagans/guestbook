@@ -9,6 +9,8 @@
     <div class="card border-primary mb-3" style="width: 48rem; text-align: center">
   <div class="card-header"><h3>{{ book.author }} ({{ book.email  }})</h3>
     <h5 class="card-title">{{ book.text }}</h5>
+      <p><a href="{% url 'book_update' book.pk %}">Редактировать</a></p>
+{#      <p><a href="{% url 'book_delete' book.pk %}">Удалить</a></p>#}
   </div>
 </div>
 

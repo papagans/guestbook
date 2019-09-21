@@ -4,9 +4,9 @@
 {#<li><a href="{% url 'todo_view' todo.pk %}">View</a></li>#}
 {% endblock %}
 {% block content %}
-    <h1>Update Todo</h1>
-    <form method="POST" action="{% url "todo_update" todo.pk %}">
+    <h1>Редактировать</h1>
+    <form method="POST" action="{% url "book_update" book.pk %}">
         {% csrf_token %}
-        {% include 'partial/todo_form.html' with button_text="Update" %}
+        {% include 'partial/book_form.html' with button_text="Update" %}
     </form>
 {% endblock %}
